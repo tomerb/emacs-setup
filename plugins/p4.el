@@ -2133,13 +2133,6 @@ character events"
     (move-to-column c)))
 
 
-;; Activate special handling for a buffer generated with a diff-like command
-(p4-make-face 'p4-diff-file-face nil "gray90")
-(p4-make-face 'p4-diff-head-face nil "gray95")
-(p4-make-face 'p4-diff-ins-face "blue" nil)
-(p4-make-face 'p4-diff-del-face "red" nil)
-(p4-make-face 'p4-diff-change-face "dark green" nil)
-
 (defun p4-buffer-set-face-property (regexp face-property)
   (save-excursion
     (goto-char (point-min))
