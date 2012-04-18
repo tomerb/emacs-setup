@@ -1,0 +1,60 @@
+(add-to-list 'load-path "~/emacs/")
+
+(require 'color-theme-zenburn)
+(color-theme-zenburn)
+
+(global-whitespace-mode)
+
+(column-number-mode)
+
+(tool-bar-mode -1)
+
+;; files history
+(setq backup-directory-alist `(("." . "~/.saves")))
+(setq backup-by-copying t)
+(setq delete-old-versions t
+  kept-new-versions 6
+  kept-old-versions 2
+  version-control t)
+
+;; scroll the `*compilation*' buffer window to follow output as it appears
+(setq compilation-scroll-output t)
+
+(defun my-c-mode-common-hook ()
+  ;; my customizations for all of c-mode, c++-mode, objc-mode, java-mode
+  (c-set-offset 'substatement-open 0)
+  ;; other customizations can go here
+
+  (setq c++-tab-always-indent t)
+  (setq c-basic-offset 4)
+  (setq c-indent-level 4)
+
+  (setq tab-stop-list '(4 8 12 16 20 24 28 32 36 40 44 48 52 56 60 64 68 72 76 80))
+  (setq tab-width 4)
+  (setq indent-tabs-mode nil)  ; use spaces only if nil
+)
+
+(add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
+
+(defun toggle-fullscreen (&optional f)
+  (interactive)
+  (let ((current-value (frame-parameter nil 'fullscreen)))
+    (set-frame-parameter nil 'fullscreen
+			 (if (equal 'fullboth current-value)
+			     (if (boundp 'old-fullscreen) old-fullscreen nil)
+			   (progn (setq old-fullscreen current-value)
+				  'fullboth)))))
+
+(global-set-key [f11] 'toggle-fullscreen)
+
+; Make new frames fullscreen by default. Note: this hook doesn't do
+; anything to the initial frame if it's in your .emacs, since that file is
+; read _after_ the initial frame is created.
+(add-hook 'after-make-frame-functions 'toggle-fullscreen)
+
+(setq split-width-threshold most-positive-fixnum)
+
+(show-paren-mode 1)
+
+;; Unbind Pesky Sleep Button, i.e. - disable Ctrl+z
+(global-unset-key [(control z)])
