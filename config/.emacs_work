@@ -57,33 +57,5 @@
 (setq split-width-threshold most-positive-fixnum)
 
 (show-paren-mode 1)
-
-;(load-file "~/apps/cedet-1.0/common/cedet.el")
-;(global-ede-mode 1)                      ; Enable the Project management system
-;(semantic-load-enable-code-helpers)      ; Enable prototype help and smart completion 
-;(global-srecode-minor-mode 1)            ; Enable template insertion menu
-
-;(add-to-list 'load-path "~/apps/ecb-2.40")
-;(require 'ecb)
-
 ;; Unbind Pesky Sleep Button, i.e. - disable Ctrl+z
 (global-unset-key [(control z)])
-
-; Mew stuff
-(autoload 'mew "mew" nil t)
-(autoload 'mew-send "mew" nil t)
-
-;; Optional setup (Read Mail menu):
-(setq read-mail-command 'mew)
-
-;; Optional setup (e.g. C-xm for sending a message):
-(autoload 'mew-user-agent-compose "mew" nil t)
-(if (boundp 'mail-user-agent)
-    (setq mail-user-agent 'mew-user-agent))
-(if (fboundp 'define-mail-user-agent)
-    (define-mail-user-agent
-      'mew-user-agent
-      'mew-user-agent-compose
-      'mew-draft-send-message
-      'mew-draft-kill
-      'mew-send-hook))
