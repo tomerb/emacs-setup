@@ -57,5 +57,11 @@
 (setq split-width-threshold most-positive-fixnum)
 
 (show-paren-mode 1)
+
 ;; Unbind Pesky Sleep Button, i.e. - disable Ctrl+z
 (global-unset-key [(control z)])
+
+(set-face-attribute 'default nil :height 110)
+
+(fset 'prefix-linebreak-macro
+   (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ("> " 0 "%d")) arg)))
