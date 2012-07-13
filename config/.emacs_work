@@ -10,6 +10,7 @@
 (column-number-mode)
 
 (tool-bar-mode -1)
+(menu-bar-mode -1)
 
 ;; files history
 (setq backup-directory-alist `(("." . "~/.saves")))
@@ -63,5 +64,5 @@
 
 (set-face-attribute 'default nil :height 110)
 
-(fset 'prefix-linebreak-macro
-   (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ("> " 0 "%d")) arg)))
+(fset 'prefix-bz-line-hack
+   (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ("> " 0 "%d")) arg)))
