@@ -66,3 +66,7 @@
 
 (fset 'prefix-bz-line-hack
    (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ("> " 0 "%d")) arg)))
+
+(when (window-system)
+  (set-frame-height (selected-frame) 50)
+  (set-frame-width (selected-frame) 140))
