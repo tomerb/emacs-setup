@@ -8,6 +8,7 @@
 (column-number-mode)
 
 (tool-bar-mode -1)
+(menu-bar-mode -1)
 
 ;; files history
 (setq backup-directory-alist `(("." . "~/emacs/saves")))
