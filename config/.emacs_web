@@ -1,0 +1,39 @@
+(add-to-list 'load-path "~/.emacs_plugins/")
+
+;; ========== Place Backup Files in Specific Directory ==========
+
+;; Enable backup files.
+(setq make-backup-files t)
+
+;; Enable versioning with default values (keep five last versions, I think!)
+(setq version-control t)
+
+;; Save all backup file in this directory.
+(setq backup-directory-alist (quote ((".*" . "~/.emacs_backups/"))))
+
+ ;; ========== Enable Line and Column Numbering ==========
+
+;; Show line-number in the mode line
+(line-number-mode 1)
+
+;; Show column-number in the mode line
+(column-number-mode 1)
+
+ ;; ========= Set colours ==========
+
+(require 'color-theme)
+(color-theme-initialize)
+(color-theme-calm-forest)
+
+ ;; ========= Whitespace mode ==========
+
+(global-whitespace-mode)
+
+ ;; ========= Default indentation ==========
+
+(setq-default js-indent-level 2)
+
+ ;; ========= Disable UI bars ==========
+
+(menu-bar-mode -1)
+(tool-bar-mode -1)
