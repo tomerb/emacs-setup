@@ -13,7 +13,7 @@
 (menu-bar-mode -1)
 
 ;; files history
-(setq backup-directory-alist `(("." . "~/.saves")))
+(setq backup-directory-alist `(("." . "~/emacs/saves")))
 (setq backup-by-copying t)
 (setq delete-old-versions t
   kept-new-versions 6
@@ -29,11 +29,11 @@
   ;; other customizations can go here
 
   (setq c++-tab-always-indent t)
-  (setq c-basic-offset 3)
-  (setq c-indent-level 3)
+  (setq c-basic-offset 4)
+  (setq c-indent-level 4)
 
-  (setq tab-stop-list '(3 6 9 12 15 18 21 24 27 30 33 36 39 42 45 48 51 54 57 60))
-  (setq tab-width 3)
+  (setq tab-stop-list '(4 8 12 16 20 24 28 32 36 40 44 48 52 56 60 64 68 72 76 80))
+  (setq tab-width 4)
   (setq indent-tabs-mode nil)  ; use spaces only if nil
 )
 
@@ -62,11 +62,6 @@
 ;; Unbind Pesky Sleep Button, i.e. - disable Ctrl+z
 (global-unset-key [(control z)])
 
-(set-face-attribute 'default nil :height 110)
+(setq ring-bell-function 'ignore)
 
-(fset 'prefix-bz-line-hack
-   (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ("> " 0 "%d")) arg)))
-
-(when (window-system)
-  (set-frame-height (selected-frame) 50)
-  (set-frame-width (selected-frame) 140))
+(set-face-attribute 'default nil :height 100)
