@@ -59,3 +59,5 @@
 
 ;; Unbind Pesky Sleep Button, i.e. - disable Ctrl+z
 (global-unset-key [(control z)])
+
+(set-face-attribute 'default nil :height 100)
